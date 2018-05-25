@@ -40,6 +40,24 @@ def exractpages():
 	return sublinks
 
 def extractappdetails(sublinks):
+	result=[]
+	for link in sublinks[:1]:
+		appdetails={}
+		r=requests.get(link,verify=False,headers=headers,timeout=30)
+		tree = html.fromstring(r.content)
+		try:
+			appname=tree.xpath("//h2[@class='product-header__identity product-header__identity--app-header product-header__identity--spaced']/a[@class='link']text()")
+			print(appname)
+		except Exception as e:
+			appname='NULL'
+		try:	
+			appconame=tree.xpath("//h2[@class='product-header__identity product-header__identity--app-header product-header__identity--spaced']/a[@class='link']/text()")
+			print(appconame)
+		except Exception as e:
+			appconame='NULL'
+		try:	
+			appcowebsite=
+		except
 
 
 
